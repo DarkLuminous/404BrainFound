@@ -1,5 +1,5 @@
 # BASIC CALCULATOR FUNCTIONS
-# make user choose operation
+
             
 # ADDITION FUNCTION
 def add(x, y):
@@ -30,16 +30,16 @@ while True:
     
     op = input("Enter operator (+, -, *, /): ")
     if op == "+":
-        print("Result: \t", add(x, y))
+        print("Result: ", add(x, y))
 
     elif op == "-":
-        print("Result: \t", sub(x, y))
+        print("Result: ", sub(x, y))
     
     elif op == "*":
-        print("Result: \t", multiply(x, y))
+        print("Result: ", multiply(x, y))
 
     elif op == "/":
-        print("Result: \t", divide(x, y))
+        print("Result: ", divide(x, y))
 
     else: print("Invalid operator!")
 
