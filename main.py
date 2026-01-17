@@ -25,7 +25,7 @@ while True:
         x = int(input("Enter First Number: "))
         y = int(input("Enter second number: "))
     except: 
-        print("Invalid, try again!")
+        print("Invalid input, try again!")
         continue
     
     op = input("Enter operator (+, -, *, /): ")
