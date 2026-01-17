@@ -48,4 +48,3 @@ while True:
     if choice != "yes":
         print("Calculator closed.")
         break
-
