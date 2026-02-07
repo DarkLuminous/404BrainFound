@@ -1,9 +1,0 @@
-# Requirements for Grade Computing System
-# Python 3.6+ required
-
-# No external packages needed - all using standard library
-# Built-in modules used:
-# - threading
-# - multiprocessing
-# - time
-# - statistics
