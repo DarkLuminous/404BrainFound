@@ -17,14 +17,13 @@ This laboratory activity explores the use of **multithreading** and **multiproce
 ## How to Run the Program
 ```bash
 python main.py
-
+```
 
 | Method          | Execution Order   | GWA Output | Execution Time |
 | --------------- | ----------------- | ---------- | -------------- |
 | Multithreading  | Non-deterministic | Correct    | ~0.15 seconds  |
 | Multiprocessing | Non-deterministic | Correct    | ~1.38 seconds  |
 
-```
 
 ## Discussion
 
