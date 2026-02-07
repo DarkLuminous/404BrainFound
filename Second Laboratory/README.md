@@ -24,15 +24,16 @@ python main.py
 | Multithreading  | Non-deterministic | Correct    | ~0.15 seconds  |
 | Multiprocessing | Non-deterministic | Correct    | ~1.38 seconds  |
 
+```
 
-Discussion
+## Discussion
 
 The output order of both multithreading and multiprocessing is non-deterministic because the operating system controls how threads and processes are scheduled. The OS dynamically allocates CPU time, which can change between executions, resulting in different output orders and execution times.
 
 Multithreading generally performs better for small or I/O-bound tasks due to its lower overhead and shared memory space. Multiprocessing introduces additional overhead from process creation and memory separation, but it enables true parallel execution and is more suitable for CPU-bound workloads. Code readability and performance analysis were improved by using modular design, class-based structure, and summarized output for large datasets.
 
 
-Questions and Answers
+## Questions and Answers
 
 1. Which approach demonstrates true parallelism in Python? Explain.
 
