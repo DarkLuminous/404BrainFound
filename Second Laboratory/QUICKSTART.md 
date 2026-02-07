@@ -1,0 +1,127 @@
+# Quick Start Guide
+
+## Step 1: Clone Your GitHub Repository
+```bash
+git clone <your-repository-url>
+cd <your-repository-name>
+```
+
+## Step 2: Copy the Files
+Copy these files into your repository:
+- `grade_computing_system.py` (full version)
+- `simple_grade_system.py` (beginner version)
+- `README.md` (lab report)
+- `requirements.txt`
+
+## Step 3: Run the Program
+
+### Option A: Full Version (Recommended)
+```bash
+python grade_computing_system.py
+```
+
+### Option B: Simple Version (For Beginners)
+```bash
+python simple_grade_system.py
+```
+
+## Step 4: Test Both Modes
+
+### Manual Input Mode
+- Choose option 1
+- Enter number of subjects
+- Enter subject names and grades
+- View results and comparison
+
+### Large Dataset Mode
+- Choose option 2
+- System generates 1000 random grades
+- View performance comparison
+
+## Step 5: Observe the Outputs
+
+Look for:
+- ✅ Execution order (which threads/processes finish first)
+- ✅ GWA calculations
+- ✅ Execution time differences
+- ✅ Output order variations
+
+## Step 6: Commit to GitHub
+
+```bash
+# Add files
+git add .
+
+# Commit with message
+git commit -m "Add grade computing system with threading and multiprocessing"
+
+# Push to GitHub
+git push origin main
+```
+
+## Expected Observations
+
+### Multithreading:
+- Faster execution
+- Shared memory
+- Non-deterministic output order
+- Lower resource usage
+
+### Multiprocessing:
+- Slower execution (for this task)
+- Separate memory spaces
+- Non-deterministic output order
+- Higher resource usage
+- True parallelism
+
+## Answering the Questions
+
+All questions are answered in `README.md`:
+1. ✅ True parallelism explanation
+2. ✅ Execution time comparison
+3. ✅ GIL explanation
+4. ✅ Large dataset analysis
+5. ✅ CPU-bound vs I/O-bound
+6. ✅ Creative coding approaches
+
+## Tips for Presentation
+
+1. **Run live demos** - Show both small and large datasets
+2. **Explain the code** - Point out key differences
+3. **Show timing results** - Use actual execution times
+4. **Discuss GIL** - This is a critical concept
+5. **Answer questions** - Refer to README.md
+
+## Common Issues and Solutions
+
+### Issue: "ModuleNotFoundError"
+**Solution:** You're using standard library only - no installation needed
+
+### Issue: Processes don't print
+**Solution:** Add `if __name__ == "__main__":` guard
+
+### Issue: Results appear in random order
+**Solution:** This is expected! It shows concurrent execution
+
+### Issue: Multiprocessing slower than threading
+**Solution:** This is correct for I/O-bound tasks
+
+## Grading Rubric Checklist
+
+- [ ] Code runs without errors
+- [ ] Both threading and multiprocessing implemented
+- [ ] User input functionality works
+- [ ] Timing measurements included
+- [ ] All 6 questions answered in README.md
+- [ ] Code is creative and well-structured
+- [ ] GitHub repository properly organized
+- [ ] Code is commented and readable
+
+## Need Help?
+
+- Check README.md for detailed explanations
+- Review the code comments
+- Test with sample data first
+- Run simple_grade_system.py if confused
+
+Good luck with your lab! 🚀
