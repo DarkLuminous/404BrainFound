@@ -6,24 +6,34 @@ employees = [
     ("Edward", 35000)
 ]
 
-def compute_sss(salary):
-    return salary * 0.045
-
-def compute_philhealth(salary):
-    return salary * 0.025
-
-def compute_pagibig(salary):
-    return salary * 0.02
-
-def compute_tax(salary):
-    return salary * 0.10
-
 from concurrent.futures import ThreadPoolExecutor
 import threading
 
+
+# Deduction Functions (Now Showing Thread Name)
+
+def compute_sss(salary):
+    print(f"SSS computed by {threading.current_thread().name}")
+    return salary * 0.045
+
+def compute_philhealth(salary):
+    print(f"PhilHealth computed by {threading.current_thread().name}")
+    return salary * 0.025
+
+def compute_pagibig(salary):
+    print(f"Pag-IBIG computed by {threading.current_thread().name}")
+    return salary * 0.02
+
+def compute_tax(salary):
+    print(f"Tax computed by {threading.current_thread().name}")
+    return salary * 0.10
+
+
 def task_parallel_payroll(employee):
     name, salary = employee
-    
+
+    print(f"\nProcessing payroll for {name} (Salary: {salary})\n")
+
     with ThreadPoolExecutor() as executor:
         future_sss = executor.submit(compute_sss, salary)
         future_philhealth = executor.submit(compute_philhealth, salary)
@@ -37,11 +47,13 @@ def task_parallel_payroll(employee):
 
     total_deduction = sss + philhealth + pagibig + tax
 
-    print(f"\nEmployee: {name}")
-    print(f"SSS: {sss}")
-    print(f"PhilHealth: {philhealth}")
-    print(f"Pag-IBIG: {pagibig}")
-    print(f"Tax: {tax}")
-    print(f"Total Deduction: {total_deduction}")
+    print("\n--- Deduction Breakdown ---")
+    print(f"SSS: {sss:.2f}")
+    print(f"PhilHealth: {philhealth:.2f}")
+    print(f"Pag-IBIG: {pagibig:.2f}")
+    print(f"Tax: {tax:.2f}")
+    print(f"Total Deduction: {total_deduction:.2f}")
 
-task_parallel_payroll(employees[2])
+
+# Run example (Charlie)
+task_parallel_payroll(employees[0])
