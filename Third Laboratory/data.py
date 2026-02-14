@@ -47,4 +47,32 @@ def compute_payroll(employee):
         "process_id": process_id
     }
 
+def main():
+    print("=== Data Parallelism: Payroll Computation ===\n")
 
+    # Process Pool Executor
+    with ProcessPoolExecutor() as executor:
+
+        # Compute_payroll to all employees in parallel
+        results = executor.map(compute_payroll, employees)
+
+        # Results
+        for result in results:
+            print(f"Process ID: {result['process_id']}")
+            print(f"Employee Name: {result['name']}")
+            print(f"Gross Salary: {result['salary']:.2f}")
+
+            print("Deductions:")
+            print(f"  SSS: {result['sss']:.2f}")
+            print(f"  PhilHealth: {result['philhealth']:.2f}")
+            print(f"  Pag-IBIG: {result['pagibig']:.2f}")
+            print(f"  Withholding Tax: {result['tax']:.2f}")
+
+            print(f"Total Deduction: {result['total_deduction']:.2f}")
+            print(f"Net Salary: {result['net_salary']:.2f}")
+            print("-" * 40)
+
+
+# Required for multiprocessing
+if __name__ == "__main__":
+    main()
