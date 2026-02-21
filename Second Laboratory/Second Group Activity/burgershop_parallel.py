@@ -56,3 +56,15 @@ def worker_cooking(cooking_queue, assembly_queue, grill_lock):
 
         assembly_queue.put(order)
         cooking_queue.task_done()
+
+def worker_assembly(assembly_queue):
+    while True:
+        order = assembly_queue.get()
+        if order is None:
+            break
+
+        time.sleep(ASSEMBLE_TIME)
+        time.sleep(PACK_TIME)
+
+        assembly_queue.task_done()
+
