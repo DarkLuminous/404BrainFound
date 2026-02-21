@@ -68,3 +68,43 @@ def worker_assembly(assembly_queue):
 
         assembly_queue.task_done()
 
+def run_parallel(orders):
+    input_queue = queue.Queue()
+    cooking_queue = queue.Queue()
+    assembly_queue = queue.Queue()
+
+    grill_lock = threading.Lock()
+
+    # Start timer
+    start_time = time.time()
+
+    # Create threads
+    t1 = threading.Thread(target=worker_intake, args=(input_queue, cooking_queue))
+    t2 = threading.Thread(target=worker_cooking, args=(cooking_queue, assembly_queue, grill_lock))
+    t3 = threading.Thread(target=worker_assembly, args=(assembly_queue,))
+
+    t1.start()
+    t2.start()
+    t3.start()
+
+    # Put orders into input queue
+    for order in orders:
+        input_queue.put(order)
+
+    # Wait for all orders to be processed
+    input_queue.join()
+    cooking_queue.join()
+    assembly_queue.join()
+
+    # Stop workers
+    input_queue.put(None)
+    cooking_queue.put(None)
+    assembly_queue.put(None)
+
+    t1.join()
+    t2.join()
+    t3.join()
+
+    end_time = time.time()
+    return end_time - start_time
+
