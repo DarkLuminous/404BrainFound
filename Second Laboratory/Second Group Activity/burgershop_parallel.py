@@ -108,3 +108,18 @@ def run_parallel(orders):
     end_time = time.time()
     return end_time - start_time
 
+# Main Benchmark
+if __name__ == "__main__":
+    orders = [Order(i) for i in range(NUM_ORDERS)]
+
+    print("Running Sequential Version...")
+    sequential_time = run_sequential(orders)
+    print(f"Sequential Time: {sequential_time:.4f} seconds")
+
+    print("\nRunning Parallel Version...")
+    parallel_time = run_parallel(orders)
+    print(f"Parallel Time: {parallel_time:.4f} seconds")
+
+    speedup = sequential_time / parallel_time
+    print(f"\nSpeedup: {speedup:.2f}x")
+    
