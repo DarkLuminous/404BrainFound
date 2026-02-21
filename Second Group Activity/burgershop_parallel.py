@@ -110,7 +110,7 @@ def run_parallel(orders):
 
 # Main Benchmark
 if __name__ == "__main__":
-    orders = [Order(i) for i in range(NUM_ORDERS)]
+    orders = list(range(NUM_ORDERS))
 
     print("Running Sequential Version...")
     sequential_time = run_sequential(orders)
